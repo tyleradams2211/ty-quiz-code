@@ -1,0 +1,60 @@
+/* main title container*/
+header{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+/* about container */
+.aboutQuiz{
+    margin-top: 5%;
+}
+/* about title */
+.aboutQuiz h2{
+    display: flex;
+    justify-content: center;
+}
+/* about paragraph */
+.aboutQuiz p{
+    display: flex;
+    margin-left: 25%;
+    justify-content: center;
+    width: 50%;
+    text-align: left;
+    text-indent: 30px;
+}
+/* take quiz container */
+.takeBtn{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+/* highscore container */
+.highScores{
+    margin-top: 5%;
+}
+/* highscore title */
+.highScores h2{
+    display: flex;
+    justify-content: center;
+}
+/* highscore score and initials */
+.highScores div{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 51%;
+    margin-left: 25%;
+}
+/* list container */
+.highScores ul{
+    width: 50%;
+    margin-left: 25%;
+}
+/* hiscore list items */
+.highScores ul li{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 1%;
+    border-bottom: 1px dashed grey;
+}

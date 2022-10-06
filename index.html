@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="./assets/css/reset.css" />
+     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Tyler's Quiz: Coding</title>
 </head>
 <body>
@@ -11,12 +13,26 @@
         <header>
             <h1>Tyler's Quiz: Coding</h1>
         </header>
-
+        <section class="aboutQuiz">
+            <h2>Scoring & Rules</h2>
+            <p>This quiz will grant 5 points per correct answer. You will have ***Change me*** seconds to complete the quiz. The game ends when you run out of time or have completed all of the questions. If you complete all of the questions in time: the remaining seconds will be used as a score multiplier.</p>
+        </section>
         <section class="takeBtn">
             <input type="button" id="takeQuiz" value="Take Quiz!">
         </section>
-
         <section class="highScores">
+            <h2>High Scores</h2>
+            <div>
+                <h3>Score</h3>
+                <h3>Initials</h3>    
+            </div>
+            <ul>
+                <li><p>1000</p><p>TCA</p></li>
+                <li><p>999</p><p>TCA</p></li>
+                <li><p>750</p><p>TCA</p></li>
+                <li><p>500</p><p>TCA</p></li>
+                <li><p>250</p><p>TCA</p></li>
+            </ul>
         </section>
 
         <section class="currentScore">
@@ -34,6 +50,6 @@
         <section class="scoreInitials">
         </section>
     </div>
-
+    <script src="./assets/scripts/script.js"></script>
 </body>
 </html>
