@@ -58,3 +58,7 @@ header{
     margin-top: 1%;
     border-bottom: 1px dashed grey;
 }
+#answerSection{
+    display: flex;
+    justify-content: center;
+}
