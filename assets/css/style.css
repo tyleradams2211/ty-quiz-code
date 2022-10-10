@@ -5,16 +5,16 @@ header{
     margin-top: 5%;
 }
 /* about container */
-.aboutQuiz{
+.section-1{
     margin-top: 5%;
 }
 /* about title */
-.aboutQuiz h2{
+.section-1 h2{
     display: flex;
     justify-content: center;
 }
 /* about paragraph */
-.aboutQuiz p{
+.section-1 p{
     display: flex;
     margin-left: 25%;
     justify-content: center;
