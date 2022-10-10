@@ -5,16 +5,16 @@ header{
     margin-top: 5%;
 }
 /* about container */
-.section-1{
+.question{
     margin-top: 5%;
 }
 /* about title */
-.section-1 h2{
+.question h2{
     display: flex;
     justify-content: center;
 }
 /* about paragraph */
-.section-1 p{
+.question p{
     display: flex;
     margin-left: 25%;
     justify-content: center;
