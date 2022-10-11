@@ -10,20 +10,20 @@ let numQuestion = "0";
 // question pool
 const questions = [
     {
-        question: 'What is 2 + 2?',
-        A: '2',
-        B: '6',
-        C: '4',
-        D: '8',
-        coorectAnswer: 'c'
+        question: 'What is an ecample of a third-party API?',
+        a: 'HTML',
+        b: 'CSS',
+        c: 'JQuery',
+        d: 'JavaScript',
+        correctAnswer: 'c'
     },
     {
         question: 'What is 4 + 2?',
-        A: '2',
-        B: '6',
-        C: '4',
-        D: '8',
-        coorectAnswer: 'b'
+        a: '2',
+        b: '6',
+        c: '4',
+        d: '8',
+        correctAnswer: 'b'
     }
 ]
 // cancel button
@@ -112,10 +112,10 @@ takeQuizBtn.addEventListener('click', event => {
     elementQuiz();
     questH1.textContent = 'Question 1';
     questP.textContent = questions[numQuestion].question;
-    aText.textContent = questions[numQuestion].A;
-    bText.textContent = questions[numQuestion].B;
-    cText.textContent = questions[numQuestion].C;
-    dText.textContent = questions[numQuestion].D;
+    aText.textContent = questions[numQuestion].a;
+    bText.textContent = questions[numQuestion].b;
+    cText.textContent = questions[numQuestion].c;
+    dText.textContent = questions[numQuestion].d;
     mainCont.append(cancelBtn);
     takeQuizBtn.value = 'Next';
     numQuestion++;
