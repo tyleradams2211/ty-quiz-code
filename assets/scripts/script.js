@@ -5,7 +5,8 @@ const takeQuizBtn = document.getElementById('takeQuiz');
 const questH1 = document.getElementById('questionH1');
 const questP = document.getElementById('questionP');
 
-let numQuestion = "0";
+let numQuestion = 0;
+let numCorrect = 0;
 
 // question pool
 const questions = [
@@ -40,7 +41,7 @@ const aListItem = document.createElement('li');
 const bListItem = document.createElement('li');
 const cListItem = document.createElement('li');
 const dListItem = document.createElement('li');
-// adding lists to section
+// adding lists to answer section
 answerList.append(aListItem);
 answerList.append(bListItem);
 answerList.append(cListItem);
@@ -86,16 +87,12 @@ bListItem.append(bText);
 cListItem.append(answerC);
 cListItem.append(cText);
 dListItem.append(answerD);
-dListItem.append(dText);
+dListItem.append(dText); 
 //remove highscores
 cancelBtn.addEventListener('click', event => {
     // takes window back to original index.html
     window.location = 'index.html'; 
 })
-// quiz function
-const takeQuiz = () => {
-    
-}
 const uncheckNext = () => {
     for (let i = 0; i < 3; i++){
         answerList.children[i].children[0].checked = false;
@@ -106,20 +103,32 @@ const elementQuiz = () => {
     highScores.remove();
     mainCont.append(answerSection);
     mainCont.insertBefore(answerSection, takeCont);
-}
-// event for starting the quiz
-takeQuizBtn.addEventListener('click', event => {
-    elementQuiz();
+    takeQuizBtn.value = 'Next';
     questH1.textContent = 'Question 1';
     questP.textContent = questions[numQuestion].question;
     aText.textContent = questions[numQuestion].a;
     bText.textContent = questions[numQuestion].b;
     cText.textContent = questions[numQuestion].c;
     dText.textContent = questions[numQuestion].d;
-    mainCont.append(cancelBtn);
-    takeQuizBtn.value = 'Next';
+}
+// function for checking if correct answer was selected, then adding to numCorrect
+const checkCorrect = () => {
+    for (let i = 0; i < 3; i++){
+        if (answerList.children[i].children[0].checked && answerList.children[i].children[0].id == answerCheck){
+            numCorrect++;
+            console.log(numCorrect);
+            return numCorrect;
+        }else{
+            numCorrect = numCorrect + 0;
+        }
+    }     
+}
+// event for starting the quiz
+takeQuizBtn.addEventListener('click', () => {
+    elementQuiz();
+    let answerCheck = questions[numQuestion].correctAnswer;
+    console.log(answerCheck);
+    checkCorrect();
     numQuestion++;
     uncheckNext();
 })
-
-console.log(answerList.children[3].children[0]);
