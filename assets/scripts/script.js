@@ -98,9 +98,7 @@ const takeQuiz = () => {
 }
 const uncheckNext = () => {
     for (let i = 0; i < 3; i++){
-        if (answerList.children[i].children[0].checked){
-            answerList.children[i].children[0].checked = false;
-        }
+        answerList.children[i].children[0].checked = false;
     }
 }
 // function to add elements when quiz starts
