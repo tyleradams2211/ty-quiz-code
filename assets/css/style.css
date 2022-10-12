@@ -65,3 +65,9 @@ header{
 .answerSection ul li label{
     cursor: pointer;
 }
+/* start button */
+.nextCont{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
