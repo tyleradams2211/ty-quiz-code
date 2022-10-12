@@ -10,7 +10,7 @@ const questions = [
         question: 'q1',
         a: 'HTML',
         b: 'CSS',
-        c: 'JQuery',
+        c: 'JQuery', 
         d: 'JavaScript',
         correctAnswer: 'a'
     },
@@ -172,23 +172,30 @@ takeQuizBtn.addEventListener('click', () => {
     quizStart();
 })
 nextBtn.addEventListener('click', () => {
-     let selectedAnswer = getAnswer();
+    let selectedAnswer = getAnswer();
+    let answerCorrect = questions[numQuestion].correctAnswer;
      if (numQuestion < questions.length - 1){
-        numQuestion++;
-        quizStart();
-        if(selectedAnswer == questions[numQuestion - 1].correctAnswer){
-            quizStart();
+        if(selectedAnswer == answerCorrect){
             numCorrect++;
             uncheckNext();
-
-        }else{
+            numQuestion++;
             quizStart();
+        }else{
             uncheckNext();
+            numQuestion++;
+            quizStart();
         }  
      }else{
-            alert('done');
+        if(selectedAnswer == answerCorrect){
+            numCorrect++;
+            alert('done' + numCorrect);
             console.log(numCorrect);
             window.location = 'index.html'; 
+        }else{
+            alert('done' + numCorrect);
+            console.log(numCorrect);
+            window.location = 'index.html';
+        }    
     }   
 })
 
