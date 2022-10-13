@@ -183,21 +183,19 @@ const questCont = document.getElementById('aboutQuiz');
     timeLeft.classList = 'timeLeft';
 // adding timeLeft to timeCont
     timeCont.append(timeLeft);
-
+// num variables
 const quizLength = questions.length;
 let numQuestion = 0;
 let numCorrect = 0;
-var secondsTimer = 10;
+var secondsTimer = 60;
 
 var quizTimer = () => {
     var timerInterval = setInterval(function() {
         secondsTimer--;
         timeLeft.textContent = secondsTimer + " seconds left";
-    
         if(secondsTimer === 0) {
             quizEnd();
         }
-    
       }, 1000);
 }
 const quizBuild = () => {
