@@ -15,12 +15,15 @@ const hInit2 = document.getElementById('hInit2');
 const hInit3 = document.getElementById('hInit3');
 const hInit4 = document.getElementById('hInit4');
 const hInit5 = document.getElementById('hInit5');
+
+
+
 // local storage items
     const userScore = JSON.parse(localStorage.getItem("userScore")) || [];
 // question pool
     const questions = [
         {
-            question: 'Which of the following is a third party API?',
+            question: 'Which of the following is a third-party API?',
             a: 'HTML',
             b: 'CSS',
             c: 'JQuery', 
@@ -28,52 +31,52 @@ const hInit5 = document.getElementById('hInit5');
             correctAnswer: 'c'
         },
         {
-            question: 'q2',
-            a: '2',
-            b: '6',
-            c: '4',
-            d: '8',
-            correctAnswer: 'b'
-        },
-        {
-            question: 'q3',
-            a: '2',
-            b: '6',
-            c: '4',
-            d: '8',
+            question: 'Which method allows access to a part of an array without modifying it?',
+            a: 'splice()',
+            b: 'push()',
+            c: 'slice()',
+            d: 'map()',
             correctAnswer: 'c'
         },
         {
-            question: 'q4',
-            a: '2',
-            b: '6',
-            c: '4',
-            d: '8',
-            correctAnswer: 'd'
-        },
-        {
-            question: 'q5',
-            a: '2',
-            b: '6',
-            c: '4',
-            d: '8',
+            question: 'method changes the contents of an array by removing or replacing existing elements and/or adding new elements in its place?',
+            a: 'splice()',
+            b: 'push()',
+            c: 'slice()',
+            d: 'map()',
             correctAnswer: 'a'
         },
         {
-            question: 'q6',
+            question: 'Which method adds one or more elements to the end of an array and returns the new length of the array?',
+            a: 'splice()',
+            b: 'push()',
+            c: 'slice()',
+            d: 'map()',
+            correctAnswer: 'b'
+        },
+        {
+            question: 'Which method creates a new array populated with the results of calling a provided function on every element in the calling array?',
+            a: 'splice()',
+            b: 'push()',
+            c: 'slice()',
+            d: 'map()',
+            correctAnswer: 'd'
+        },
+        {
+            question: 'What does CSS stabnd for?',
             a: '2',
-            b: '6',
-            c: '4',
+            b: '',
+            c: 'Cascading Style Sheets',
             d: '8',
             correctAnswer: 'b'
         },
         {
-            question: 'q7',
-            a: '2',
-            b: '6',
-            c: '4',
-            d: '8',
-            correctAnswer: 'c'
+            question: 'Which of the following is your best friend when working with JavaScript?',
+            a: 'console.log()',
+            b: 'A Wrist Brace',
+            c: 'GUNNER Gaming Glasses',
+            d: 'Quadruple nested if statements',
+            correctAnswer: 'a'
         }
     ]
 // score display container
@@ -98,6 +101,7 @@ const hInit5 = document.getElementById('hInit5');
         textInitials.placeholder = 'Enter your initials';
         textInitials.id = 'textInitials';
         textInitials.classList = 'textInitials';
+        textInitials.maxLength = 3;
 // appending html elements to display
     displayScore.append(numScore);
     displayInitials.append(textInitials);
@@ -284,13 +288,11 @@ nextBtn.addEventListener('click', () => {
             numQuestion++;
             quizStart();
             scoreSeconds = secondsTimer;
-            console.log(scoreSeconds);
         }else{
             uncheckNext();
             numQuestion++;
             quizStart();
             scoreSeconds = secondsTimer;
-            console.log(scoreSeconds);
         }  
      }else{
         if(selectedAnswer == answerCorrect){
@@ -325,3 +327,18 @@ submitBtn.addEventListener('click', () => {
     // sends back to default index
     location.reload();
 });
+// Current score board ************Needs to be changed to map()*************
+hScore1.textContent = userScore[0].quizScore;
+hInit1.textContent = userScore[0].initials;
+
+hScore2.textContent = userScore[1].quizScore;
+hInit2.textContent = userScore[1].initials;
+
+hScore3.textContent = userScore[2].quizScore;
+hInit3.textContent = userScore[2].initials;
+
+hScore4.textContent = userScore[3].quizScore;
+hInit4.textContent = userScore[3].initials;
+
+hScore5.textContent = userScore[4].quizScore;
+hInit5.textContent = userScore[4].initials;
