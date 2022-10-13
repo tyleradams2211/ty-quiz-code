@@ -283,43 +283,4 @@ nextBtn.addEventListener('click', () => {
 submitBtn.addEventListener('click', () => {
 })
 
-
-
-
-// Unchecks all before moving to next question
-// const uncheckNext = () => {
-//     for (let i = 0; i < 3; i++){
-//         answerList.children[i].children[0].checked = false;
-//     }
-// }
-// function to add elements when quiz starts
-// const elementQuiz = () => {
-//     highScores.remove();
-//     mainCont.append(answerSection);
-//     mainCont.insertBefore(answerSection, takeCont);
-//     takeQuizBtn.value = 'Next';
-//     questH1.textContent = 'Question 1';
-//     questP.textContent = questions[numQuestion].question;
-//     aText.textContent = questions[numQuestion].a;
-//     bText.textContent = questions[numQuestion].b;
-//     cText.textContent = questions[numQuestion].c;
-//     dText.textContent = questions[numQuestion].d;
-// }
-// function for checking if correct answer was selected, then adding to numCorrect
-// const checkCorrect = () => {
-//     for (let i = 0; i < 3; i++){
-//         if (answerList.children[i].children[0].checked && answerList.children[i].children[0].id == answerCheck){
-//             numCorrect++;
-//             console.log(numCorrect);
-//             return numCorrect;
-//         }else{
-//             numCorrect = numCorrect + 0;
-//         }
-//     }     
-// }
-
-
-
-
-// ref
-// 
+// Todo: local storage set & get, highscore function.
