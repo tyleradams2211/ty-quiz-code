@@ -11,12 +11,12 @@ const questCont = document.getElementById('aboutQuiz');
 // question pool
     const questions = [
         {
-            question: 'q1',
+            question: 'Which of the following is a third party API?',
             a: 'HTML',
             b: 'CSS',
             c: 'JQuery', 
             d: 'JavaScript',
-            correctAnswer: 'a'
+            correctAnswer: 'c'
         },
         {
             question: 'q2',
@@ -188,7 +188,7 @@ const quizLength = questions.length;
 let numQuestion = 0;
 let numCorrect = 0;
 var secondsTimer = 60;
-
+// function for the countdown
 var quizTimer = () => {
     var timerInterval = setInterval(function() {
         secondsTimer--;
@@ -198,6 +198,7 @@ var quizTimer = () => {
         }
       }, 1000);
 }
+// initializing the quiz layout
 const quizBuild = () => {
     highScores.remove();
     mainCont.append(timeCont);
@@ -208,6 +209,7 @@ const quizBuild = () => {
     mainCont.insertBefore(answerSection, nextCont);
     questP.remove();
 }
+// gets questions and answers from our questions object
 const quizStart = () => {
     questH1.textContent = questions[numQuestion].question;
     aText.textContent = questions[numQuestion].a;
@@ -215,6 +217,7 @@ const quizStart = () => {
     cText.textContent = questions[numQuestion].c;
     dText.textContent = questions[numQuestion].d;
 }
+// gets the answer the user selected
 const getAnswer = () => {
     let selectedAnswer = false;
     for (let i = 0; i < 4; i++){
@@ -224,11 +227,13 @@ const getAnswer = () => {
     }
     return selectedAnswer;  
 }
+// unchecks all inputs before showing the next question
 const uncheckNext = () => {
     for (let i = 0; i < 4; i++){
         answerList.children[i].children[0].checked = false;
     }
 }
+// ends the quiz and displays the score with an area to input initials
 const quizEnd = () => {
     questCont.remove();
     answerSection.remove();
@@ -238,16 +243,20 @@ const quizEnd = () => {
     mainCont.append(submitCont);
     numScore.textContent = 'Congratulations! You scored ' + numCorrect + ' out of ' + quizLength + '! Enter your intials below to save your score for the highscores list on the home screen.';
 }
+// event for "Take Quiz" button
 takeQuizBtn.addEventListener('click', () => {
     quizTimer();
     quizBuild();
     quizStart();
     takeCont.remove();
 })
+// event for "Next" Button
 nextBtn.addEventListener('click', () => {
     let selectedAnswer = getAnswer();
     let answerCorrect = questions[numQuestion].correctAnswer;
+    // checks if question amount has been reached
      if (numQuestion < questions.length - 1){
+        // checks if correct answer was selected
         if(selectedAnswer == answerCorrect){
             numCorrect++;
             uncheckNext();
@@ -270,6 +279,7 @@ nextBtn.addEventListener('click', () => {
         }    
     }   
 })
+// event for "submit" Button.
 submitBtn.addEventListener('click', () => {
 })
 
