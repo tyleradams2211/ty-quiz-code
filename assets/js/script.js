@@ -6,8 +6,7 @@ const questH1 = document.getElementById('questionH1');
 const questP = document.getElementById('questionP');
 const questCont = document.getElementById('aboutQuiz');
 // local storage items
-    var userScore = localStorage.getItem("userScore");
-    var userInitials = localStorage.getItem("userInitials");
+    const userScore = JSON.parse(localStorage.getItem("userScore")) || [];
 // question pool
     const questions = [
         {
@@ -189,6 +188,7 @@ let numQuestion = 0;
 let numCorrect = 0;
 var secondsTimer = 60;
 let scoreSeconds = 0;
+let trueScore = 0;
 // function for the countdown
 var quizTimer = () => {
     var timerInterval = setInterval(function() {
@@ -234,7 +234,7 @@ const uncheckNext = () => {
         answerList.children[i].children[0].checked = false;
     }
 }
-// ends the quiz and displays the score with an area to input initials
+// ends the quiz, calculates the users true score and displays the score with an area to input initials
 const quizEnd = () => {
     questCont.remove();
     answerSection.remove();
@@ -242,8 +242,13 @@ const quizEnd = () => {
     timeCont.remove();
     mainCont.append(displayCont);
     mainCont.append(submitCont);
-    numScore.textContent = 'Congratulations! You scored ' + numCorrect + ' out of ' + quizLength + '! Enter your intials below to save your score for the highscores list on the home screen.';
-    console.log(scoreSeconds);
+    trueScore = Math.round((numCorrect * 5)*(1 + (scoreSeconds / 100))*100);
+    console.log(trueScore);
+    numScore.textContent = 'Congratulations! You scored ' + numCorrect + ' out of ' + quizLength + ' with ' + scoreSeconds + ' seconds left which gives you a total score of ' + trueScore + '. Enter your intials below to save your score for the highscores list on the home screen.';
+}
+// gets the trueScore and initials from the display score screen
+const getHighScore = () => {
+
 }
 // event for "Take Quiz" button
 takeQuizBtn.addEventListener('click', () => {
@@ -251,7 +256,7 @@ takeQuizBtn.addEventListener('click', () => {
     quizBuild();
     quizStart();
     takeCont.remove();
-})
+});
 // event for "Next" Button
 nextBtn.addEventListener('click', () => {
     let selectedAnswer = getAnswer();
@@ -283,9 +288,18 @@ nextBtn.addEventListener('click', () => {
             quizEnd();
         }    
     }   
-})
+});
+// disables submit button if there is no value in the text field for initials
+textInitials.addEventListener('keydown', () => {
+    submitBtn.disabled = !textInitials.value;
+});
 // event for "submit" Button.
 submitBtn.addEventListener('click', () => {
-})
-
-// Todo: local storage set & get, highscore function.
+    const scoreList = {
+        initials: textInitials.value,
+        score: trueScore
+    };
+    userScore.push(scoreList);
+    console.log(userScore);
+});
+// Todo:highscore function.
