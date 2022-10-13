@@ -189,6 +189,7 @@ let numCorrect = 0;
 var secondsTimer = 60;
 let scoreSeconds = 0;
 let trueScore = 0;
+const useScoreLength = 5;
 // function for the countdown
 var quizTimer = () => {
     var timerInterval = setInterval(function() {
@@ -297,9 +298,15 @@ textInitials.addEventListener('keydown', () => {
 submitBtn.addEventListener('click', () => {
     const scoreList = {
         initials: textInitials.value,
-        score: trueScore
+        quizScore: trueScore
     };
     userScore.push(scoreList);
-    console.log(userScore);
+    userScore.sort((a, b) => {
+        return b.quizScore - a.quizScore;
+    });
+    userScore.splice(5);
+
+    localStorage.setItem('userScore', JSON.stringify(userScore));
+
+    location.reload();
 });
-// Todo:highscore function.
