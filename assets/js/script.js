@@ -188,6 +188,7 @@ const quizLength = questions.length;
 let numQuestion = 0;
 let numCorrect = 0;
 var secondsTimer = 60;
+let scoreSeconds = 0;
 // function for the countdown
 var quizTimer = () => {
     var timerInterval = setInterval(function() {
@@ -242,6 +243,7 @@ const quizEnd = () => {
     mainCont.append(displayCont);
     mainCont.append(submitCont);
     numScore.textContent = 'Congratulations! You scored ' + numCorrect + ' out of ' + quizLength + '! Enter your intials below to save your score for the highscores list on the home screen.';
+    console.log(scoreSeconds);
 }
 // event for "Take Quiz" button
 takeQuizBtn.addEventListener('click', () => {
@@ -262,11 +264,14 @@ nextBtn.addEventListener('click', () => {
             uncheckNext();
             numQuestion++;
             quizStart();
-            console.log(secondsTimer);
+            scoreSeconds = secondsTimer;
+            console.log(scoreSeconds);
         }else{
             uncheckNext();
             numQuestion++;
             quizStart();
+            scoreSeconds = secondsTimer;
+            console.log(scoreSeconds);
         }  
      }else{
         if(selectedAnswer == answerCorrect){
