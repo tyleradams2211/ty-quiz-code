@@ -5,6 +5,16 @@ const takeQuizBtn = document.getElementById('takeQuiz');
 const questH1 = document.getElementById('questionH1');
 const questP = document.getElementById('questionP');
 const questCont = document.getElementById('aboutQuiz');
+const hScore1 = document.getElementById('hScore1');
+const hScore2 = document.getElementById('hScore2');
+const hScore3 = document.getElementById('hScore3');
+const hScore4 = document.getElementById('hScore4');
+const hScore5 = document.getElementById('hScore5');
+const hInit1 = document.getElementById('hInit1');
+const hInit2 = document.getElementById('hInit2');
+const hInit3 = document.getElementById('hInit3');
+const hInit4 = document.getElementById('hInit4');
+const hInit5 = document.getElementById('hInit5');
 // local storage items
     const userScore = JSON.parse(localStorage.getItem("userScore")) || [];
 // question pool
@@ -189,7 +199,7 @@ let numCorrect = 0;
 var secondsTimer = 60;
 let scoreSeconds = 0;
 let trueScore = 0;
-const useScoreLength = 5;
+const userScoreLength = 5;
 // function for the countdown
 var quizTimer = () => {
     var timerInterval = setInterval(function() {
@@ -249,7 +259,10 @@ const quizEnd = () => {
 }
 // gets the trueScore and initials from the display score screen
 const getHighScore = () => {
+    hScore1.textContent = userScore[0].quizScore;
+    hInit1.textContent = userScore[0].initials;
 
+// console.log(userScore[0].quizScore);
 }
 // event for "Take Quiz" button
 takeQuizBtn.addEventListener('click', () => {
@@ -300,13 +313,15 @@ submitBtn.addEventListener('click', () => {
         initials: textInitials.value,
         quizScore: trueScore
     };
+    // forces new object into array userScore, sorts by trueScore with a limit of 5
     userScore.push(scoreList);
     userScore.sort((a, b) => {
         return b.quizScore - a.quizScore;
     });
-    userScore.splice(5);
-
+    userScore.splice(userScoreLength);
+    // sets local storage for the 5 objects in userScore
     localStorage.setItem('userScore', JSON.stringify(userScore));
-
+    getHighScore();
+    // sends back to default index
     location.reload();
 });
