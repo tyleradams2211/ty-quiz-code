@@ -5,6 +5,7 @@ const takeQuizBtn = document.getElementById('takeQuiz');
 const questH1 = document.getElementById('questionH1');
 const questP = document.getElementById('questionP');
 const questCont = document.getElementById('aboutQuiz');
+// below will be removed after map method used
 const hScore1 = document.getElementById('hScore1');
 const hScore2 = document.getElementById('hScore2');
 const hScore3 = document.getElementById('hScore3');
@@ -15,9 +16,6 @@ const hInit2 = document.getElementById('hInit2');
 const hInit3 = document.getElementById('hInit3');
 const hInit4 = document.getElementById('hInit4');
 const hInit5 = document.getElementById('hInit5');
-
-
-
 // local storage items
     const userScore = JSON.parse(localStorage.getItem("userScore")) || [];
 // question pool
