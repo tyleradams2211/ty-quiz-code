@@ -4,6 +4,11 @@
 ```
 A quiz to test coding knowledge and keep track of high scores via localstorage.
 ```
+## Screenshots
+![quiz1](.\assets\images\quiz1.png)
+![quiz2](.\assets\images\quiz2.png)
+
+
 ## User Story
 
 ```

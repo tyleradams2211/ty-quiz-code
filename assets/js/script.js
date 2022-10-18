@@ -287,6 +287,7 @@ nextBtn.addEventListener('click', () => {
             quizStart();
             scoreSeconds = secondsTimer;
         }else{
+            secondsTimer -= 5;
             uncheckNext();
             numQuestion++;
             quizStart();
